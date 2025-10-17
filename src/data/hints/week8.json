@@ -1,0 +1,104 @@
+
+{
+    "week": 8,
+    "problems": [
+      {
+        "id": "seasons",
+        "name": "Seasons of Love",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần tính số phút giữa ngày sinh và ngày hôm nay, sau đó chuyển số phút đó thành chữ.",
+              "Thư viện `datetime` rất hữu ích để làm việc với ngày tháng. Làm thế nào để tạo một đối tượng `date` từ một chuỗi?",
+              "Làm thế nào để tính toán sự chênh lệch giữa hai ngày?",
+              "Thư viện `inflect` có thể giúp chuyển đổi số thành chữ. Làm thế nào để sử dụng nó?",
+              "Bài toán cũng yêu cầu viết unit test. Bạn cần tạo một file test riêng biệt."
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Nhận ngày sinh từ người dùng ở định dạng YYYY-MM-DD.",
+              "2. Sử dụng `datetime.date.fromisoformat()` để chuyển chuỗi thành đối tượng `date`.",
+              "3. Lấy ngày hôm nay bằng `datetime.date.today()`.",
+              "4. Trừ hai ngày để có một đối tượng `timedelta`. Lấy tổng số ngày từ `.days`.",
+              "5. Chuyển đổi số ngày thành phút (ngày * 24 * 60).",
+              "6. Sử dụng thư viện `inflect` để chuyển số phút thành chữ: `p.number_to_words(minutes, andword=\"\")`.",
+              "7. Viết hoa chữ cái đầu và in kết quả."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "from datetime import date\nimport inflect\nimport sys\n\ndef main():\n    try:\n        birth_date = date.fromisoformat(input(\"Date of Birth: \"))\n    except ValueError:\n        sys.exit(\"Invalid date\")\n\n    today = date.today()\n    delta = today - birth_date\n    minutes = delta.days * 24 * 60\n\n    p = inflect.engine()\n    words = p.number_to_words(minutes, andword=\"\").capitalize()\n    print(f\"{words} minutes\")\n\nif __name__ == \"__main__\":\n    main()"
+          }
+        }
+      },
+      {
+        "id": "cookie",
+        "name": "Cookie Jar",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bài toán này giới thiệu về Lập trình Hướng đối tượng (OOP). Bạn cần tạo một lớp `Jar`.",
+              "Lớp này nên có những thuộc tính (attributes) nào? (ví dụ: dung tích, số lượng bánh hiện tại).",
+              "Phương thức khởi tạo `__init__` nên làm gì?",
+              "Các phương thức `deposit`, `withdraw`, `capacity`, `size` nên thực hiện chức năng gì và trả về giá trị gì?",
+              "Làm thế nào để 'in' một đối tượng `Jar` ra màn hình dưới dạng các emoji bánh quy? Hãy xem xét phương thức đặc biệt `__str__`."
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Định nghĩa lớp `class Jar:`.",
+              "2. `__init__(self, capacity=12)`: Khởi tạo `self.capacity` và `self.size = 0`. Ném `ValueError` nếu `capacity` không phải là số nguyên dương.",
+              "3. `@property capacity(self)` và `size(self)`: Trả về các giá trị tương ứng.",
+              "4. `deposit(self, n)`: Cộng `n` vào `self.size`. Ném `ValueError` nếu tổng vượt quá `self.capacity`.",
+              "5. `withdraw(self, n)`: Trừ `n` khỏi `self.size`. Ném `ValueError` nếu không đủ bánh để rút.",
+              "6. `__str__(self)`: Trả về một chuỗi gồm `self.size` lần emoji '🍪'."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "class Jar:\n    def __init__(self, capacity=12):\n        if not isinstance(capacity, int) or capacity < 0:\n            raise ValueError(\"Capacity must be a non-negative integer\")\n        self._capacity = capacity\n        self._size = 0\n\n    def __str__(self):\n        return \"🍪\" * self.size\n\n    def deposit(self, n):\n        if self.size + n > self.capacity:\n            raise ValueError(\"Too many cookies\")\n        self._size += n\n\n    def withdraw(self, n):\n        if self.size < n:\n            raise ValueError(\"Not enough cookies\")\n        self._size -= n\n\n    @property\n    def capacity(self):\n        return self._capacity\n\n    @property\n    def size(self):\n        return self._size"
+          }
+        }
+      },
+      {
+        "id": "shirtificate",
+        "name": "CS50 Shirtificate",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần tạo một file PDF có hình ảnh áo thun và một dòng chữ tùy chỉnh.",
+              "Thư viện `fpdf2` là một lựa chọn tốt để tạo PDF trong Python.",
+              "Làm thế nào để tạo một trang PDF mới?",
+              "Làm thế nào để thêm một hình ảnh vào trang?",
+              "Làm thế nào để thiết lập font chữ, kích thước chữ, màu chữ và thêm văn bản vào trang?",
+              "Làm thế nào để căn giữa văn bản?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Nhận tên từ người dùng.",
+              "2. Tạo một đối tượng PDF: `pdf = FPDF(orientation=\"P\", unit=\"mm\", format=\"A4\")`.",
+              "3. Thêm một trang mới: `pdf.add_page()`.",
+              "4. Thêm hình ảnh áo thun ở đầu trang, căn giữa: `pdf.image(\"shirtificate.png\", ...)`.",
+              "5. Thiết lập font và màu chữ cho tiêu đề 'CS50 Shirtificate' và in nó ra.",
+              "6. Thiết lập font và màu chữ cho tên người dùng.",
+              "7. Di chuyển con trỏ đến vị trí thích hợp trên áo và in ra tên người dùng đã được căn giữa.",
+              "8. Lưu file PDF: `pdf.output(\"shirtificate.pdf\")`."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "from fpdf import FPDF\n\nclass PDF(FPDF):\n    def header(self):\n        self.set_font(\"helvetica\", \"B\", 36)\n        self.cell(0, 50, \"CS50 Shirtificate\", align=\"C\")\n        self.ln(20)\n\nname = input(\"Name: \")\n\npdf = PDF(orientation=\"P\", unit=\"mm\", format=\"A4\")\npdf.add_page()\npdf.image(\"shirtificate.png\", x=10, y=70, w=190)\n\npdf.set_font_size(24)\npdf.set_text_color(255, 255, 255) # White text\npdf.cell(0, -170, f\"{name} took CS50\", align=\"C\")\n\npdf.output(\"shirtificate.pdf\")"
+          }
+        }
+      }
+    ]
+  }
+  

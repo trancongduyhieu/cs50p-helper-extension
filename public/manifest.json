@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "CS50P Helper",
+  "version": "1.0.0",
+  "description": "Hỗ trợ học CS50P với hints tiếng Việt và tài liệu tích hợp.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://cs50.harvard.edu/*",
+    "https://docs.python.org/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://cs50.harvard.edu/python/*"
+      ],
+      "js": ["content.js"],
+      "css": ["main.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "main.css",
+        "assets/*"
+      ],
+      "matches": ["https://cs50.harvard.edu/*"]
+    }
+  ],
+  "icons": {
+    "16": "icon/icon16.png",
+    "48": "icon/icon48.png",
+    "128": "icon/icon128.png"
+  }
+}

@@ -1,0 +1,158 @@
+
+{
+    "week": 7,
+    "problems": [
+      {
+        "id": "numb3rs",
+        "name": "NUMB3RS",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần kiểm tra xem một chuỗi có phải là địa chỉ IPv4 hợp lệ hay không.",
+              "Một địa chỉ IPv4 hợp lệ có dạng A.B.C.D, trong đó A, B, C, D là các số từ 0 đến 255.",
+              "Biểu thức chính quy (regular expressions) là công cụ lý tưởng cho việc khớp mẫu này.",
+              "Làm thế nào để bạn viết một mẫu regex để khớp với một số từ 0-255? Điều này khá phức tạp. Có lẽ nên tách chuỗi tại các dấu chấm và kiểm tra từng số một sẽ đơn giản hơn?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Nhận chuỗi địa chỉ IP từ người dùng.",
+              "2. Tách chuỗi tại các dấu chấm `.` để có một danh sách các octet.",
+              "3. Kiểm tra xem danh sách có đúng 4 phần tử không. Nếu không, nó không hợp lệ.",
+              "4. Dùng vòng lặp để duyệt qua từng octet trong danh sách.",
+              "5. Bên trong vòng lặp, chuyển đổi octet thành số nguyên (sử dụng `try/except` để bắt `ValueError`).",
+              "6. Kiểm tra xem số nguyên đó có nằm trong khoảng từ 0 đến 255 không.",
+              "7. Nếu bất kỳ kiểm tra nào thất bại, địa chỉ không hợp lệ. Nếu tất cả đều thành công, nó hợp lệ."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "import re\nimport sys\n\ndef main():\n    print(validate(input(\"IPv4 Address: \")))\n\ndef validate(ip):\n    # Sử dụng regex để khớp mẫu cơ bản A.B.C.D\n    if re.search(r\"^\\d+\\.\\d+\\.\\d+\\.\\d+$\", ip):\n        # Tách và kiểm tra từng phần\n        parts = ip.split(\".\")\n        for part in parts:\n            if not 0 <= int(part) <= 255:\n                return False\n        return True\n    return False\n\nif __name__ == \"__main__\":\n    main()"
+          }
+        }
+      },
+      {
+        "id": "watch",
+        "name": "Watch on YouTube",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần trích xuất một URL YouTube ngắn gọn từ mã HTML `iframe`.",
+              "URL mong muốn có dạng `https://youtu.be/ID`.",
+              "Hãy xem xét cấu trúc của thuộc tính `src` trong thẻ `iframe`. Phần ID của video nằm ở đâu?",
+              "Biểu thức chính quy có thể giúp bạn tìm và trích xuất phần URL này từ chuỗi HTML."
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Nhận mã HTML từ người dùng.",
+              "2. Sử dụng `re.search()` để tìm một mẫu trong chuỗi.",
+              "3. Mẫu regex cần tìm thuộc tính `src`. Nó có thể trông giống như `src=\"https?://(?:www\\.)?youtube\\.com/embed/([a-zA-Z0-9_]+)\"`.",
+              "4. Dấu ngoặc đơn `()` trong regex tạo ra một 'capturing group'. Đây chính là ID video bạn cần.",
+              "5. Nếu `re.search()` tìm thấy một kết quả, bạn có thể truy cập capturing group bằng `.group(1)`.",
+              "6. Xây dựng URL ngắn gọn bằng cách nối chuỗi và in ra."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "import re\nimport sys\n\ndef main():\n    print(parse(input(\"HTML: \")))\n\ndef parse(s):\n    # Tìm kiếm src attribute và trích xuất ID video\n    if match := re.search(r'src=\"https?://(?:www\\.)?youtube\\.com/embed/([a-zA-Z0-9_]+)\"', s):\n        video_id = match.group(1)\n        return f\"https://youtu.be/{video_id}\"\n    return None\n\nif __name__ == \"__main__\":\n    main()"
+          }
+        }
+      },
+      {
+        "id": "working",
+        "name": "Working 9 to 5",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần chuyển đổi khoảng thời gian từ định dạng 12 giờ (ví dụ: '9 AM to 5 PM') sang định dạng 24 giờ (ví dụ: '09:00 to 17:00').",
+              "Đây là một bài toán phân tích cú pháp phức tạp, rất phù hợp với biểu thức chính quy và các 'capturing groups'.",
+              "Mẫu regex của bạn cần bắt được giờ, phút (nếu có), và AM/PM cho cả thời gian bắt đầu và kết thúc.",
+              "Sau khi trích xuất các thành phần, bạn cần logic để chuyển đổi từ 12 giờ sang 24 giờ."
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Viết một mẫu regex phức tạp để khớp với toàn bộ chuỗi đầu vào và trích xuất 6 phần: giờ bắt đầu, phút bắt đầu, AM/PM bắt đầu, giờ kết thúc, phút kết thúc, AM/PM kết thúc.",
+              "2. Sử dụng `re.search()` và kiểm tra xem có kết quả không. Nếu không, ném `ValueError`.",
+              "3. Lấy các group đã bắt được. Viết một hàm trợ giúp, ví dụ `convert_time`, nhận giờ, phút, AM/PM và trả về chuỗi 24 giờ.",
+              "4. Trong `convert_time`, xử lý các trường hợp đặc biệt: 12 AM là 00, 12 PM là 12. Đối với các giờ PM khác, cộng thêm 12.",
+              "5. Gọi hàm trợ giúp này cho cả thời gian bắt đầu và kết thúc.",
+              "6. Nối các chuỗi kết quả lại và trả về."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "import re\n\ndef main():\n    # ... gọi convert và xử lý ValueError ...\n\ndef convert(s):\n    pattern = r\"(\\d{1,2}):?(\\d{2})? (AM|PM) to (\\d{1,2}):?(\\d{2})? (AM|PM)\"\n    match = re.search(pattern, s)\n    if not match:\n        raise ValueError\n    \n    # ... trích xuất các group và gọi hàm trợ giúp để định dạng lại ...\n    # Ví dụ hàm trợ giúp:\n    # def format_time(hour, minute, period):\n    #     # ... logic chuyển đổi 12h -> 24h ...\n    #     return f\"{new_hour:02}:{new_minute:02}\"\n\n    # return f\"{start_24} to {end_24}\"\n\n# ... gọi main ..."
+          }
+        }
+      },
+      {
+        "id": "um",
+        "name": "Regular, um, Expressions",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần đếm số lần từ 'um' xuất hiện như một từ độc lập trong một chuỗi, không phân biệt chữ hoa/thường.",
+              "Từ 'um' trong 'yummy' không được tính. 'um' phải đứng một mình.",
+              "Làm thế nào để bạn đảm bảo một từ là độc lập bằng regex? Hãy xem xét các 'word boundaries' (`\\b`).",
+              "Làm thế nào để đếm tất cả các lần xuất hiện, thay vì chỉ tìm lần đầu tiên?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Import thư viện `re`.",
+              "2. Nhận chuỗi đầu vào.",
+              "3. Sử dụng `re.findall()` để tìm tất cả các lần xuất hiện của mẫu.",
+              "4. Mẫu regex nên là `\\bum\\b`. `\\b` là một 'word boundary', nó khớp với vị trí giữa một ký tự từ và một ký tự không phải từ.",
+              "5. `re.findall()` sẽ trả về một danh sách tất cả các chuỗi khớp. Độ dài của danh sách này chính là số lần xuất hiện.",
+              "6. Để xử lý không phân biệt chữ hoa/thường, hãy thêm cờ `re.IGNORECASE` vào hàm `findall`."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "import re\nimport sys\n\ndef main():\n    print(count(input(\"Text: \")))\n\ndef count(s):\n    # Tìm tất cả các lần xuất hiện của từ 'um' đứng một mình, không phân biệt hoa thường\n    matches = re.findall(r\"\\bum\\b\", s, re.IGNORECASE)\n    return len(matches)\n\nif __name__ == \"__main__\":\n    main()"
+          }
+        }
+      },
+      {
+        "id": "response",
+        "name": "Response Validation",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần kiểm tra xem một chuỗi có phải là một địa chỉ email hợp lệ hay không.",
+              "Việc viết một regex hoàn hảo cho email là cực kỳ phức tạp và dễ sai.",
+              "Có thư viện nào của bên thứ ba chuyên về việc xác thực các loại dữ liệu khác nhau, bao gồm cả email không?",
+              "Hãy tìm kiếm một thư viện xác thực (validator library) trên PyPI."
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Cài đặt thư viện `validators`: `pip install validators`.",
+              "2. Import hàm `email` từ thư viện: `from validators import email`.",
+              "3. Nhận địa chỉ email từ người dùng.",
+              "4. Gọi hàm `email()` và truyền chuỗi đầu vào.",
+              "5. Hàm này sẽ trả về `True` nếu hợp lệ và `False` (hoặc một giá trị falsy) nếu không hợp lệ.",
+              "6. Dựa vào kết quả trả về, in ra 'Valid' hoặc 'Invalid'."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "from validators import email\n\nemail_address = input(\"What's your email address? \")\n\nif email(email_address):\n    print(\"Valid\")\nelse:\n    print(\"Invalid\")"
+          }
+        }
+      }
+    ]
+  }
+  

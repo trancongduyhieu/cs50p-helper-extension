@@ -1,0 +1,298 @@
+{
+  "week0": {
+    "indoor": {
+      "docs": [
+        "https://docs.python.org/3/library/stdtypes.html#str.lower",
+        "https://docs.python.org/3/library/functions.html#input"
+      ],
+      "topics": ["String Methods", "Input/Output"]
+    },
+    "playback": {
+      "docs": [
+        "https://docs.python.org/3/library/stdtypes.html#str.replace"
+      ],
+      "topics": ["String Manipulation"]
+    },
+    "faces": {
+      "docs": [
+        "https://docs.python.org/3/library/stdtypes.html#str.replace",
+        "https://docs.python.org/3/reference/compound_stmts.html#function-definitions"
+      ],
+      "topics": ["String Replacement", "Functions"]
+    },
+    "einstein": {
+      "docs": [
+        "https://docs.python.org/3/library/functions.html#int",
+        "https://docs.python.org/3/tutorial/floatingpoint.html"
+      ],
+      "topics": ["Type Conversion", "Arithmetic"]
+    },
+    "tip": {
+      "docs": [
+        "https://docs.python.org/3/library/functions.html#float",
+        "https://docs.python.org/3/library/stdtypes.html#str.removesuffix"
+      ],
+      "topics": ["Floating-Point Arithmetic", "String Parsing"]
+    }
+  },
+  "week1": {
+    "deep": {
+      "docs": [
+        "https://docs.python.org/3/reference/compound_stmts.html#the-if-statement",
+        "https://docs.python.org/3/library/stdtypes.html#string-methods"
+      ],
+      "topics": ["Conditionals", "String Comparison"]
+    },
+    "bank": {
+      "docs": [
+        "https://docs.python.org/3/library/stdtypes.html#str.startswith",
+        "https://docs.python.org/3/reference/compound_stmts.html#match-statements"
+      ],
+      "topics": ["String Methods", "Pattern Matching"]
+    },
+    "extensions": {
+      "docs": [
+        "https://docs.python.org/3/library/stdtypes.html#str.rsplit",
+        "https://docs.python.org/3/library/stdtypes.html#str.lower",
+        "https://docs.python.org/3/library/stdtypes.html#str.strip"
+      ],
+      "topics": ["String Splitting", "MIME Types"]
+    },
+    "interpreter": {
+      "docs": [
+        "https://docs.python.org/3/library/stdtypes.html#str.split",
+        "https://docs.python.org/3/library/functions.html#float"
+      ],
+      "topics": ["String Parsing", "Arithmetic Evaluation"]
+    },
+    "meal": {
+      "docs": [
+        "https://docs.python.org/3/library/time.html"
+      ],
+      "topics": ["Time Conversion", "Conditionals"]
+    }
+  },
+  "week2": {
+    "camel": {
+      "docs": [
+        "https://docs.python.org/3/reference/compound_stmts.html#the-for-statement",
+        "https://docs.python.org/3/library/stdtypes.html#str.isupper"
+      ],
+      "topics": ["Loops", "String Methods", "String Concatenation"]
+    },
+    "coke": {
+      "docs": [
+        "https://docs.python.org/3/reference/compound_stmts.html#the-while-statement"
+      ],
+      "topics": ["While Loops", "Conditionals"]
+    },
+    "twttr": {
+      "docs": [
+        "https://docs.python.org/3/tutorial/datastructures.html#looping-techniques"
+      ],
+      "topics": ["String Iteration", "Conditionals"]
+    },
+    "vanity": {
+      "docs": [
+        "https://docs.python.org/3/library/stdtypes.html#str.isalpha",
+        "https://docs.python.org/3/library/stdtypes.html#str.isdigit",
+        "https://docs.python.org/3/reference/compound_stmts.html#function-definitions"
+      ],
+      "topics": ["Functions", "String Slicing", "Conditionals"]
+    },
+    "nutrition": {
+      "docs": [
+        "https://docs.python.org/3/tutorial/datastructures.html#dictionaries"
+      ],
+      "topics": ["Dictionaries", "Input Handling"]
+    }
+  },
+  "week3": {
+    "fuel": {
+      "docs": [
+        "https://docs.python.org/3/tutorial/errors.html#handling-exceptions",
+        "https://docs.python.org/3/library/stdtypes.html#str.split"
+      ],
+      "topics": ["Exception Handling", "Try-Except", "ValueError", "ZeroDivisionError"]
+    },
+    "taqueria": {
+      "docs": [
+        "https://docs.python.org/3/tutorial/datastructures.html#dictionaries",
+        "https://docs.python.org/3/library/exceptions.html#EOFError"
+      ],
+      "topics": ["Dictionaries", "Exception Handling", "EOFError"]
+    },
+    "grocery": {
+      "docs": [
+        "https://docs.python.org/3/library/stdtypes.html#dict.get",
+        "https://docs.python.org/3/tutorial/datastructures.html#looping-techniques"
+      ],
+      "topics": ["Dictionaries", "EOFError", "Sorting"]
+    },
+    "outdated": {
+      "docs": [
+        "https://docs.python.org/3/library/datetime.html",
+        "https://docs.python.org/3/library/stdtypes.html#str.replace"
+      ],
+      "topics": ["Date Parsing", "Exception Handling", "String Manipulation"]
+    }
+  },
+  "week4": {
+    "emojize": {
+      "docs": [
+        "https://pypi.org/project/emoji/"
+      ],
+      "topics": ["Third-Party Libraries", "Emoji"]
+    },
+    "figlet": {
+      "docs": [
+        "https://pypi.org/project/pyfiglet/",
+        "https://docs.python.org/3/library/sys.html#sys.argv",
+        "https://docs.python.org/3/library/random.html"
+      ],
+      "topics": ["Command-Line Arguments", "Third-Party Libraries"]
+    },
+    "game": {
+      "docs": [
+        "https://docs.python.org/3/library/random.html#random.randint",
+        "https://docs.python.org/3/tutorial/errors.html#handling-exceptions"
+      ],
+      "topics": ["Random Numbers", "Exception Handling"]
+    },
+    "professor": {
+      "docs": [
+        "https://docs.python.org/3/library/random.html#random.randint"
+      ],
+      "topics": ["Random Numbers", "Function Design"]
+    },
+    "bitcoin": {
+      "docs": [
+        "https://pypi.org/project/requests/",
+        "https://docs.python.org/3/library/sys.html#sys.argv",
+        "https://docs.python.org/3/library/json.html"
+      ],
+      "topics": ["APIs", "JSON", "Command-Line Arguments", "Requests"]
+    }
+  },
+  "week5": {
+    "testtwttr": {
+      "docs": [
+        "https://docs.pytest.org/en/latest/getting-started.html"
+      ],
+      "topics": ["Unit Testing", "Pytest", "Assertions"]
+    },
+    "testbank": {
+      "docs": [
+        "https://docs.pytest.org/en/latest/getting-started.html"
+      ],
+      "topics": ["Unit Testing", "Pytest", "Assertions"]
+    },
+    "testplates": {
+      "docs": [
+        "https://docs.pytest.org/en/latest/getting-started.html"
+      ],
+      "topics": ["Unit Testing", "Pytest", "Assertions"]
+    },
+    "testfuel": {
+      "docs": [
+        "https://docs.pytest.org/en/latest/getting-started.html",
+        "https://docs.pytest.org/en/latest/how-to/assert.html#assertions-about-expected-exceptions"
+      ],
+      "topics": ["Unit Testing", "Pytest", "Testing Exceptions"]
+    }
+  },
+  "week6": {
+    "lines": {
+      "docs": [
+        "https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files",
+        "https://docs.python.org/3/library/sys.html#sys.argv"
+      ],
+      "topics": ["File I/O", "Command-Line Arguments"]
+    },
+    "pizza": {
+      "docs": [
+        "https://docs.python.org/3/library/csv.html",
+        "https://pypi.org/project/tabulate/"
+      ],
+      "topics": ["CSV Files", "Third-Party Libraries", "Tabulate"]
+    },
+    "scourgify": {
+      "docs": [
+        "https://docs.python.org/3/library/csv.html#csv.DictReader",
+        "https://docs.python.org/3/library/csv.html#csv.DictWriter"
+      ],
+      "topics": ["CSV I/O", "File Handling"]
+    },
+    "shirt": {
+      "docs": [
+        "https://pillow.readthedocs.io/en/stable/reference/Image.html",
+        "https://pillow.readthedocs.io/en/stable/reference/ImageOps.html#Pillow.ImageOps.fit"
+      ],
+      "topics": ["Image Processing", "Pillow (PIL)"]
+    }
+  },
+  "week7": {
+    "numb3rs": {
+      "docs": [
+        "https://docs.python.org/3/library/re.html"
+      ],
+      "topics": ["Regular Expressions", "IP Address Validation"]
+    },
+    "watch": {
+      "docs": [
+        "https://docs.python.org/3/library/re.html#re.search"
+      ],
+      "topics": ["Regular Expressions", "HTML Parsing"]
+    },
+    "working": {
+      "docs": [
+        "https://docs.python.org/3/library/re.html#regular-expression-syntax"
+      ],
+      "topics": ["Regular Expressions", "Time Conversion", "Groups"]
+    },
+    "um": {
+      "docs": [
+        "https://docs.python.org/3/library/re.html#re.findall",
+        "https://docs.python.org/3/library/re.html#re.IGNORECASE"
+      ],
+      "topics": ["Regular Expressions", "Counting Matches"]
+    },
+    "response": {
+      "docs": [
+        "https://pypi.org/project/validators/"
+      ],
+      "topics": ["Third-Party Libraries", "Data Validation"]
+    }
+  },
+  "week8": {
+    "seasons": {
+      "docs": [
+        "https://docs.python.org/3/library/datetime.html",
+        "https://pypi.org/project/inflect/",
+        "https://docs.python.org/3/library/sys.html"
+      ],
+      "topics": ["Date and Time", "Third-Party Libraries", "Unit Testing"]
+    },
+    "cookie": {
+      "docs": [
+        "https://docs.python.org/3/tutorial/classes.html"
+      ],
+      "topics": ["Object-Oriented Programming", "Classes", "Methods"]
+    },
+    "shirtificate": {
+      "docs": [
+        "https://pypi.org/project/fpdf2/",
+        "https://docs.python.org/3/tutorial/classes.html"
+      ],
+      "topics": ["Object-Oriented Programming", "PDF Generation", "FPDF2"]
+    }
+  },
+  "week9": {
+    "project": {
+      "docs": [
+        "https://cs50.harvard.edu/python/2022/project/"
+      ],
+      "topics": ["Final Project", "Project Management"]
+    }
+  }
+}

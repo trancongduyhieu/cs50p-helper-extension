@@ -1,0 +1,131 @@
+
+{
+    "week": 3,
+    "problems": [
+      {
+        "id": "fuel",
+        "name": "Fuel Gauge",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bài toán yêu cầu bạn xử lý đầu vào dạng phân số (ví dụ: '3/4') và đối phó với các lỗi tiềm ẩn.",
+              "Những lỗi nào có thể xảy ra khi người dùng nhập dữ liệu? (ví dụ: không phải số, chia cho 0).",
+              "Cấu trúc nào trong Python cho phép bạn 'bắt' và xử lý các lỗi này một cách an toàn?",
+              "Làm thế nào để bạn lặp lại việc yêu cầu nhập liệu cho đến khi nhận được đầu vào hợp lệ?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Sử dụng một vòng lặp vô hạn (`while True`) để liên tục yêu cầu người dùng nhập liệu.",
+              "2. Bên trong vòng lặp, đặt mã xử lý đầu vào vào trong một khối `try`.",
+              "3. Trong khối `try`, tách chuỗi đầu vào tại dấu `/`. Chuyển đổi tử số và mẫu số thành số nguyên.",
+              "4. Kiểm tra nếu tử số lớn hơn mẫu số thì bỏ qua và lặp lại (`continue`).",
+              "5. Tính phần trăm và làm tròn. Nếu mọi thứ thành công, thoát khỏi vòng lặp (`break`).",
+              "6. Thêm các khối `except` để bắt `ValueError` (nếu người dùng không nhập số) và `ZeroDivisionError` (nếu mẫu số là 0). Trong các khối này, dùng `pass` để bỏ qua lỗi và lặp lại.",
+              "7. Sau vòng lặp, dùng `if/elif/else` để in ra 'E', 'F', hoặc giá trị phần trăm."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "while True:\n    try:\n        fraction = input(\"Fraction: \")\n        x_str, y_str = fraction.split(\"/\")\n        x = int(x_str)\n        y = int(y_str)\n\n        if x > y:\n            continue # Thử lại nếu tử số lớn hơn mẫu số\n\n        percentage = round((x / y) * 100)\n        break # Thoát vòng lặp nếu thành công\n\n    except (ValueError, ZeroDivisionError):\n        pass # Bỏ qua lỗi và thử lại\n\nif percentage <= 1:\n    print(\"E\")\nelif percentage >= 99:\n    print(\"F\")\nelse:\n    print(f\"{percentage}%\")"
+          }
+        }
+      },
+      {
+        "id": "taqueria",
+        "name": "Felipe's Taqueria",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần tạo một thực đơn ảo và tính tổng tiền cho các món hàng mà người dùng nhập.",
+              "Cấu trúc dữ liệu nào phù hợp để lưu trữ thực đơn (món ăn và giá tiền)?",
+              "Người dùng sẽ nhập nhiều món. Làm thế nào để bạn liên tục nhận đầu vào cho đến khi họ báo hiệu kết thúc?",
+              "Làm thế nào để xử lý tín hiệu kết thúc nhập liệu (Control-D), gây ra lỗi `EOFError`?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Tạo một dictionary chứa thực đơn.",
+              "2. Khởi tạo một biến `total_cost` bằng 0.",
+              "3. Sử dụng vòng lặp `while True`.",
+              "4. Bên trong vòng lặp, đặt lời gọi `input()` vào trong khối `try`.",
+              "5. Trong `try`, nhận tên món ăn, chuyển nó sang dạng Title Case để khớp với khóa trong dictionary.",
+              "6. Nếu món ăn có trong thực đơn, cộng giá của nó vào `total_cost` và in ra tổng tiền hiện tại.",
+              "7. Thêm khối `except EOFError` để bắt lỗi khi người dùng nhấn Control-D. Khi lỗi này xảy ra, in một dòng mới và thoát khỏi vòng lặp (`break`)."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "menu = {\n    \"Baja Taco\": 4.00,\n    \"Burrito\": 7.50,\n    # ... thêm các món khác\n}\n\ntotal_cost = 0\n\nwhile True:\n    try:\n        item = input(\"Item: \").title()\n        if item in menu:\n            total_cost += menu[item]\n            print(f\"Total: ${total_cost:.2f}\")\n    except EOFError:\n        print() # In dòng mới cho đẹp\n        break"
+          }
+        }
+      },
+      {
+        "id": "grocery",
+        "name": "Grocery List",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần tạo một danh sách mua sắm, đếm số lượng của mỗi mặt hàng, và cuối cùng in ra danh sách đã được sắp xếp.",
+              "Cấu trúc dữ liệu nào cho phép bạn lưu trữ các mặt hàng và số lượng của chúng một cách hiệu quả?",
+              "Làm thế nào để bạn xử lý việc một mặt hàng được nhập nhiều lần?",
+              "Sau khi người dùng nhập xong, làm thế nào để bạn lấy danh sách các mặt hàng và sắp xếp chúng theo thứ tự bảng chữ cái?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Khởi tạo một dictionary rỗng để lưu danh sách mua sắm.",
+              "2. Sử dụng vòng lặp `while True` và khối `try/except EOFError` để nhận đầu vào.",
+              "3. Trong `try`, nhận tên mặt hàng, chuyển thành chữ hoa.",
+              "4. Kiểm tra xem mặt hàng đã có trong dictionary chưa. Nếu có, tăng số lượng lên 1. Nếu chưa, thêm nó vào với số lượng là 1.",
+              "5. Sau khi vòng lặp kết thúc, lấy tất cả các khóa (tên mặt hàng) từ dictionary.",
+              "6. Sắp xếp danh sách các khóa này theo thứ tự bảng chữ cái.",
+              "7. Dùng một vòng lặp khác để duyệt qua danh sách đã sắp xếp và in ra số lượng cùng với tên mặt hàng."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "grocery_list = {}\n\nwhile True:\n    try:\n        item = input().upper()\n        if item in grocery_list:\n            grocery_list[item] += 1\n        else:\n            grocery_list[item] = 1\n    except EOFError:\n        # Lấy các khóa và sắp xếp\n        sorted_items = sorted(grocery_list.keys())\n        # In danh sách\n        for i in sorted_items:\n            print(f\"{grocery_list[i]} {i}\")\n        break"
+          }
+        }
+      },
+      {
+        "id": "outdated",
+        "name": "Outdated",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần xử lý hai định dạng ngày tháng: 'MM/DD/YYYY' và 'Month Day, YYYY'.",
+              "Làm thế nào để bạn phân biệt được người dùng đang nhập định dạng nào?",
+              "Đối với định dạng 'Month Day, YYYY', làm thế nào để chuyển đổi tên tháng (ví dụ: 'September') thành số tháng (ví dụ: 9)?",
+              "Bạn cần liên tục yêu cầu nhập lại cho đến khi nhận được ngày hợp lệ. Vòng lặp và xử lý ngoại lệ là cần thiết."
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Tạo một danh sách các tên tháng.",
+              "2. Bắt đầu vòng lặp `while True`.",
+              "3. Trong vòng lặp, yêu cầu nhập ngày và đặt mã xử lý trong khối `try`.",
+              "4. Kiểm tra xem chuỗi đầu vào có chứa dấu '/' không. Nếu có, tách chuỗi, chuyển đổi thành số nguyên, và kiểm tra tính hợp lệ (tháng <= 12, ngày <= 31).",
+              "5. Nếu không có '/', kiểm tra xem có dấu phẩy không. Nếu có, tách chuỗi, tìm chỉ số của tháng trong danh sách (cộng 1 để ra số tháng), và kiểm tra tính hợp lệ.",
+              "6. Nếu ngày hợp lệ, định dạng nó thành YYYY-MM-DD và thoát vòng lặp.",
+              "7. Nếu có lỗi (`ValueError`, `IndexError`, etc.) hoặc ngày không hợp lệ, khối `except` hoặc `if` sẽ khiến vòng lặp tiếp tục."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "months = [\"January\", ..., \"December\"]\n\nwhile True:\n    date_str = input(\"Date: \")\n    try:\n        if \"/\" in date_str:\n            m, d, y = map(int, date_str.split(\"/\"))\n        else:\n            parts = date_str.replace(\",\", \"\").split()\n            if len(parts) != 3:\n                continue\n            month_str, day_str, year_str = parts\n            m = months.index(month_str) + 1\n            d = int(day_str)\n            y = int(year_str)\n\n        if m > 12 or d > 31:\n            continue\n\n        print(f\"{y:04}-{m:02}-{d:02}\")\n        break\n    except (ValueError, KeyError, IndexError):\n        pass"
+          }
+        }
+      }
+    ]
+  }
+  

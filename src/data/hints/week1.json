@@ -1,0 +1,67 @@
+
+{
+  "week": 1,
+  "title": "Conditionals",
+  "problems": [
+    {
+      "id": "deep",
+      "name": "Deep Thought",
+      "hints": {
+        "level1": {
+          "title": "Gợi ý Tư duy",
+          "content": [
+            "Bạn cần kiểm tra xem câu trả lời của người dùng có phải là '42', 'forty-two', hoặc 'forty two' hay không.",
+            "Làm thế nào để xử lý việc người dùng có thể nhập chữ hoa, chữ thường lẫn lộn, ví dụ như 'Forty-Two' hoặc '42 ' có khoảng trắng thừa?",
+            "Bạn nên sử dụng cấu trúc điều kiện nào để so sánh câu trả lời đã được chuẩn hóa với các đáp án đúng?"
+          ]
+        },
+        "level2": {
+          "title": "Các Bước Logic",
+          "content": [
+            "1. Nhận đầu vào từ người dùng.",
+            "2. Chuẩn hóa đầu vào: chuyển tất cả thành chữ thường bằng `.lower()` và loại bỏ khoảng trắng ở hai đầu bằng `.strip()`.",
+            "3. Sử dụng câu lệnh `if/elif/else` để kiểm tra.",
+            "4. `if` đầu vào đã chuẩn hóa bằng `== '42'`.",
+            "5. `elif` đầu vào đã chuẩn hóa bằng `== 'forty-two'`.",
+            "6. `elif` đầu vào đã chuẩn hóa bằng `== 'forty two'`.",
+            "7. Nếu bất kỳ điều kiện nào ở trên là đúng, in ra 'Yes'.",
+            "8. Nếu không, khối `else` sẽ được thực thi, in ra 'No'."
+          ]
+        },
+        "level3": {
+          "title": "Code Skeleton",
+          "content": "// Nhận câu trả lời từ người dùng\nanswer = input(\"What is the Answer to the Great Question of Life, the Universe, and Everything? \")\n\n// Chuẩn hóa câu trả lời: chuyển sang chữ thường và xóa khoảng trắng thừa\nclean_answer = answer.lower().strip()\n\n// Kiểm tra nếu câu trả lời đã chuẩn hóa khớp với một trong các đáp án đúng\nif clean_answer == '42' or clean_answer == 'forty-two' or clean_answer == 'forty two':\n    print(\"Yes\")\nelse:\n    print(\"No\")"
+        }
+      }
+    },
+    {
+      "id": "bank",
+      "name": "Home Federal Savings Bank",
+      "hints": {
+        "level1": {
+          "title": "Gợi ý Tư duy",
+          "content": [
+            "Bài toán yêu cầu bạn trả về số tiền dựa trên lời chào của người dùng.",
+            "Lời chào có thể bắt đầu bằng 'hello' hoặc chỉ là 'h'. Làm thế nào để kiểm tra xem một chuỗi có bắt đầu bằng một chuỗi con cụ thể nào đó không?",
+            "Tương tự như bài trước, bạn cần phải xử lý trường hợp chữ hoa/thường không nhất quán. Chuẩn hóa đầu vào là bước quan trọng."
+          ]
+        },
+        "level2": {
+          "title": "Các Bước Logic",
+          "content": [
+            "1. Nhận lời chào từ người dùng.",
+            "2. Chuẩn hóa lời chào: chuyển thành chữ thường và xóa khoảng trắng hai đầu.",
+            "3. Sử dụng `if/elif/else`.",
+            "4. Dùng phương thức `.startswith('hello')` để kiểm tra xem lời chào đã chuẩn hóa có bắt đầu bằng 'hello' hay không. Nếu có, in ra '$0'.",
+            "5. `elif` dùng `.startswith('h')` để kiểm tra xem nó có bắt đầu bằng 'h' (nhưng không phải 'hello'). Nếu có, in ra '$20'.",
+            "6. `else` cho tất cả các trường hợp khác, in ra '$100'."
+          ]
+        },
+        "level3": {
+          "title": "Code Skeleton",
+          "content": "// Nhận lời chào từ người dùng\ngreeting = input(\"Greeting: \")\n\n// Chuẩn hóa lời chào\nclean_greeting = greeting.lower().strip()\n\n// Kiểm tra các điều kiện\nif clean_greeting.startswith('hello'):\n    print(\"$0\")\nelif clean_greeting.startswith('h'):\n    print(\"$20\")\nelse:\n    print(\"$100\")"
+        }
+      }
+    }
+  ]
+}

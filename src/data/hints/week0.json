@@ -1,0 +1,143 @@
+
+{
+  "week": 0,
+  "title": "Functions, Variables",
+  "problems": [
+    {
+      "id": "indoor",
+      "name": "Indoor Voice",
+      "hints": {
+        "level1": {
+          "title": "Gợi ý Tư duy",
+          "content": [
+            "Bài toán yêu cầu bạn nhận một chuỗi văn bản và in ra phiên bản chữ thường của nó. Python có phương thức nào có sẵn cho các đối tượng chuỗi (string) để thực hiện việc này không?",
+            "Quy trình của chương trình nên diễn ra như thế nào? Hãy nghĩ về ba bước cơ bản: nhận dữ liệu, xử lý dữ liệu, và xuất dữ liệu."
+          ]
+        },
+        "level2": {
+          "title": "Các Bước Logic",
+          "content": [
+            "1. Dùng hàm `input()` để yêu cầu và nhận một chuỗi từ người dùng. Bạn có thể thêm một câu nhắc (prompt) bên trong `input()` để hướng dẫn người dùng.",
+            "2. Chuỗi nhận được từ `input()` là một đối tượng string. Gọi phương thức `.lower()` trên chuỗi này để tạo ra một chuỗi mới hoàn toàn là chữ thường.",
+            "3. Sử dụng hàm `print()` để hiển thị chuỗi chữ thường vừa tạo ra màn hình."
+          ]
+        },
+        "level3": {
+          "title": "Code Skeleton",
+          "content": "// Bắt đầu bằng cách nhận đầu vào từ người dùng\n// và lưu nó vào một biến.\nuserInput = input(\"Vui lòng nhập văn bản của bạn: \")\n\n// Tiếp theo, chuyển đổi văn bản của người dùng thành chữ thường\n// và lưu kết quả vào một biến khác.\nlowercaseText = userInput.lower()\n\n// Cuối cùng, in kết quả ra.\nprint(lowercaseText)\n\n// Mẹo: Bạn có thể kết hợp các bước này thành một dòng duy nhất!\n// print(input(\"Vui lòng nhập văn bản của bạn: \").lower())"
+        }
+      }
+    },
+    {
+      "id": "playback",
+      "name": "Playback Speed",
+      "hints": {
+        "level1": {
+          "title": "Gợi ý Tư duy",
+          "content": [
+            "Bạn cần thay thế mỗi khoảng trắng trong chuỗi đầu vào bằng ba dấu chấm ('...'). Có phương thức chuỗi nào trong Python cho phép bạn thay thế một chuỗi con này bằng một chuỗi con khác không?",
+            "Hãy cân nhắc xem phương thức này có thay đổi chuỗi gốc hay không, hay nó trả về một chuỗi mới đã được sửa đổi?"
+          ]
+        },
+        "level2": {
+          "title": "Các Bước Logic",
+          "content": [
+            "1. Nhận một câu từ người dùng bằng hàm `input()`.",
+            "2. Sử dụng phương thức `.replace()` của chuỗi. Phương thức này nhận hai đối số: chuỗi con cần tìm và chuỗi con để thay thế.",
+            "3. Gọi `.replace(' ', '...')` trên chuỗi đầu vào để tạo một chuỗi mới.",
+            "4. In chuỗi mới này ra màn hình."
+          ]
+        },
+        "level3": {
+          "title": "Code Skeleton",
+          "content": "// Nhận câu từ người dùng\nsentence = input()\n\n// Thay thế mỗi khoảng trắng bằng '...'\n// Phương thức replace(old, new) rất hữu ích ở đây.\nmodifiedSentence = sentence.replace(' ', '...')\n\n// In kết quả đã sửa đổi\nprint(modifiedSentence)"
+        }
+      }
+    },
+    {
+      "id": "faces",
+      "name": "Making Faces",
+      "hints": {
+        "level1": {
+          "title": "Gợi ý Tư duy",
+          "content": [
+            "Bài toán yêu cầu bạn chuyển đổi các biểu tượng cảm xúc dạng văn bản như `:)` thành các emoji thực sự. Làm thế nào bạn có thể áp dụng lại kỹ thuật thay thế chuỗi từ bài 'Playback Speed' ở đây?",
+            "Để làm cho code có thể tái sử dụng và dễ đọc hơn, bạn có nên gói logic chuyển đổi vào một hàm riêng không? Hàm đó sẽ nhận tham số gì và trả về giá trị gì?"
+          ]
+        },
+        "level2": {
+          "title": "Các Bước Logic",
+          "content": [
+            "1. Định nghĩa một hàm, ví dụ `convert(text)`, nhận một chuỗi làm đối số.",
+            "2. Bên trong hàm `convert`, sử dụng phương thức `.replace()` để thay thế `:)` bằng `🙂` và `:( ` bằng `🙁`. Bạn có thể thực hiện hai lần thay thế trên cùng một chuỗi.",
+            "3. Hàm `convert` nên `return` chuỗi đã được chuyển đổi.",
+            "4. Định nghĩa một hàm `main()` để chứa logic chính của chương trình.",
+            "5. Bên trong `main()`, gọi `input()` để nhận văn bản từ người dùng, sau đó gọi hàm `convert()` với văn bản đó và in kết quả trả về.",
+            "6. Đừng quên gọi hàm `main()` ở cuối file của bạn."
+          ]
+        },
+        "level3": {
+          "title": "Code Skeleton",
+          "content": "def main():\n    // Nhận văn bản từ người dùng\n    userInput = input()\n    // Gọi hàm convert và in kết quả của nó\n    print(convert(userInput))\n\ndef convert(text):\n    // Thay thế :) bằng 🙂\n    text = text.replace(':)', '🙂')\n    // Thay thế :( bằng 🙁\n    text = text.replace(':(', '🙁')\n    // Trả về chuỗi đã được sửa đổi hoàn toàn\n    return text\n\n// Chạy hàm main\nmain()"
+        }
+      }
+    },
+    {
+      "id": "einstein",
+      "name": "Einstein",
+      "hints": {
+        "level1": {
+          "title": "Gợi ý Tư duy",
+          "content": [
+            "Công thức là E = mc². Bạn cần lấy khối lượng (m) từ người dùng, là một số nguyên. Hằng số tốc độ ánh sáng (c) là 300000000.",
+            "Làm thế nào để thực hiện phép tính lũy thừa (bình phương) trong Python?",
+            "Dữ liệu nhận từ `input()` luôn là một chuỗi (string). Làm thế nào để chuyển đổi nó thành một số nguyên (integer) để thực hiện các phép tính toán học?"
+          ]
+        },
+        "level2": {
+          "title": "Các Bước Logic",
+          "content": [
+            "1. Nhận khối lượng (m) từ người dùng bằng `input()`. Nhắc người dùng nhập khối lượng bằng kilogam.",
+            "2. Chuyển đổi chuỗi đầu vào thành một số nguyên bằng cách sử dụng hàm `int()`.",
+            "3. Khai báo một hằng số cho tốc độ ánh sáng, `c = 300000000`.",
+            "4. Tính năng lượng (E) bằng công thức: `E = m * c * c` hoặc `E = m * c**2`.",
+            "5. In kết quả năng lượng E ra màn hình."
+          ]
+        },
+        "level3": {
+          "title": "Code Skeleton",
+          "content": "// Yêu cầu người dùng nhập khối lượng (m) và chuyển đổi nó thành số nguyên\nmass_kg = int(input(\"m: \"))\n\n// Định nghĩa tốc độ ánh sáng (c) bằng mét trên giây\nspeed_of_light_ms = 300000000\n\n// Tính năng lượng (E) theo công thức của Einstein\n// E = m * c^2\nenergy_joules = mass_kg * (speed_of_light_ms ** 2)\n\n// In kết quả năng lượng\nprint(f\"E: {energy_joules}\")"
+        }
+      }
+    },
+    {
+      "id": "tip",
+      "name": "Tip Calculator",
+      "hints": {
+        "level1": {
+          "title": "Gợi ý Tư duy",
+          "content": [
+            "Bạn cần hai hàm: `dollars_to_float` và `percent_to_float`. Mỗi hàm này cần xử lý chuỗi đầu vào như thế nào?",
+            "Đối với `dollars_to_float`, làm thế nào để loại bỏ ký tự `$` ở đầu?",
+            "Đối với `percent_to_float`, làm thế nào để loại bỏ ký tự `%` ở cuối và chuyển đổi phần trăm thành giá trị thập phân (ví dụ: 15% -> 0.15)?",
+            "Đầu vào từ người dùng sẽ ở dạng chuỗi, ví dụ `$50.00` và `15%`. Bạn cần chuyển đổi chúng thành số thực (float) để tính toán."
+          ]
+        },
+        "level2": {
+          "title": "Các Bước Logic",
+          "content": [
+            "1. Trong hàm `main`: Nhận hai đầu vào từ người dùng cho hóa đơn và phần trăm tiền boa.",
+            "2. Gọi hàm `dollars_to_float` với số tiền hóa đơn. Bên trong hàm này, sử dụng `.removeprefix('$')` để xóa ký tự `$` và sau đó dùng `float()` để chuyển đổi.",
+            "3. Gọi hàm `percent_to_float` với phần trăm tiền boa. Bên trong hàm này, sử dụng `.removesuffix('%')` để xóa `%`, dùng `float()` để chuyển đổi, và sau đó chia cho 100.",
+            "4. Trong `main`, nhân hai kết quả float này để tính số tiền boa.",
+            "5. In kết quả tiền boa, định dạng nó thành hai chữ số thập phân bằng f-string, ví dụ: `f\"${tip:.2f}\"`."
+          ]
+        },
+        "level3": {
+          "title": "Code Skeleton",
+          "content": "def main():\n    dollars = dollars_to_float(input(\"How much was the meal? \"))\n    percent = percent_to_float(input(\"What percentage would you like to tip? \"))\n    tip = dollars * percent\n    print(f\"Leave ${tip:.2f}\")\n\ndef dollars_to_float(d):\n    // Xóa ký tự '$' ở đầu và chuyển đổi phần còn lại thành float\n    return float(d.removeprefix('$'))\n\ndef percent_to_float(p):\n    // Xóa ký tự '%' ở cuối, chuyển đổi thành float và chia cho 100\n    return float(p.removesuffix('%')) / 100\n\nmain()"
+        }
+      }
+    }
+  ]
+}

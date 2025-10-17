@@ -1,0 +1,66 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* --- Base App Styles --- */
+/* This ensures the root can expand and the fixed app has a reliable anchor */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Scrollbar Styles --- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9; /* slate-100 */
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1; /* slate-300 */
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; /* slate-400 */
+}
+
+/* --- Content Hiding --- */
+/* Hide original CS50 page content when the extension is active */
+body.cs50p-helper-active > *:not(#cs50p-helper-app-root) {
+    display: none !important;
+}
+
+/* --- Content Overrides --- */
+/* Fix for cloned content from original page */
+#cs50-problem-content code {
+    color: #c026d3; /* fuchsia-600 */
+    background-color: #f1f5f9; /* slate-100 */
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 0.9em;
+    border: 1px solid #e2e8f0; /* slate-200 */
+}
+
+#cs50-problem-content pre {
+    background-color: #f8fafc; /* slate-50 */
+    color: #334155;     /* slate-700 */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0; /* slate-200 */
+}
+
+#cs50-problem-content pre code {
+    background-color: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+/* Fix for the empty input boxes in problem description */
+#cs50-problem-content .response {
+   border: 1px dashed #94a3b8; /* slate-400 */
+   background-color: #f1f5f9; /* slate-100 */
+}

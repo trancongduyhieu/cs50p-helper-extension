@@ -1,0 +1,163 @@
+
+{
+    "week": 2,
+    "problems": [
+      {
+        "id": "camel",
+        "name": "camelCase",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bài toán yêu cầu chuyển đổi một chuỗi camelCase (ví dụ: 'nameOfVariable') thành snake_case (ví dụ: 'name_of_variable').",
+              "Bạn cần duyệt qua từng ký tự của chuỗi đầu vào.",
+              "Khi gặp một ký tự viết hoa, bạn cần làm gì? Bạn cần thêm một dấu gạch dưới `_` và ký tự đó ở dạng chữ thường.",
+              "Các ký tự không phải chữ hoa thì sao? Chỉ cần thêm chúng vào chuỗi kết quả."
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Nhận chuỗi camelCase từ người dùng.",
+              "2. Tạo một chuỗi rỗng để lưu kết quả snake_case.",
+              "3. Dùng vòng lặp `for` để duyệt qua từng ký tự trong chuỗi camelCase.",
+              "4. Bên trong vòng lặp, dùng phương thức `.isupper()` để kiểm tra xem ký tự có phải là chữ hoa không.",
+              "5. Nếu là chữ hoa, nối thêm `_` và ký tự đó ở dạng chữ thường (`.lower()`) vào chuỗi kết quả.",
+              "6. Nếu không phải chữ hoa, chỉ cần nối ký tự đó vào chuỗi kết quả.",
+              "7. Sau khi vòng lặp kết thúc, in ra chuỗi kết quả."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "camel_case = input(\"camelCase: \")\nsnake_case = \"\"\n\nfor char in camel_case:\n    if char.isupper():\n        snake_case += \"_\" + char.lower()\n    else:\n        snake_case += char\n\nprint(f\"snake_case: {snake_case}\")"
+          }
+        }
+      },
+      {
+        "id": "coke",
+        "name": "Coke Machine",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Giá một lon Coca-Cola là 50 cent. Máy chỉ chấp nhận các đồng xu 25, 10, và 5 cent.",
+              "Bạn cần một vòng lặp để liên tục nhận tiền từ người dùng cho đến khi họ trả đủ.",
+              "Làm thế nào để theo dõi số tiền còn nợ?",
+              "Vòng lặp nên tiếp tục khi nào? Điều kiện dừng của vòng lặp là gì?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Khởi tạo một biến `amount_due` bằng 50.",
+              "2. Bắt đầu một vòng lặp `while` với điều kiện `amount_due > 0`.",
+              "3. Bên trong vòng lặp, in ra số tiền còn nợ.",
+              "4. Yêu cầu người dùng nhập một đồng xu và chuyển đổi nó thành số nguyên.",
+              "5. Kiểm tra xem đồng xu có phải là 25, 10, hay 5 không.",
+              "6. Nếu là đồng xu hợp lệ, trừ giá trị của nó khỏi `amount_due`.",
+              "7. Khi vòng lặp kết thúc (khi `amount_due` <= 0), tính và in ra số tiền thừa (giá trị tuyệt đối của `amount_due`)."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "amount_due = 50\n\nwhile amount_due > 0:\n    print(f\"Amount Due: {amount_due}\")\n    coin = int(input(\"Insert Coin: \"))\n    if coin in [25, 10, 5]:\n        amount_due -= coin\n\nchange_owed = abs(amount_due)\nprint(f\"Change Owed: {change_owed}\")"
+          }
+        }
+      },
+      {
+        "id": "twttr",
+        "name": "Just setting up my twttr",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Mục tiêu là loại bỏ tất cả các nguyên âm (a, e, i, o, u) khỏi một chuỗi, không phân biệt chữ hoa/thường.",
+              "Làm thế nào để duyệt qua từng ký tự của chuỗi đầu vào?",
+              "Làm thế nào để kiểm tra xem một ký tự có phải là nguyên âm hay không?",
+              "Bạn sẽ xây dựng chuỗi kết quả như thế nào?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Nhận chuỗi đầu vào từ người dùng.",
+              "2. Tạo một chuỗi rỗng để lưu kết quả.",
+              "3. Tạo một danh sách hoặc chuỗi chứa tất cả các nguyên âm (cả chữ hoa và chữ thường) để dễ kiểm tra.",
+              "4. Dùng vòng lặp `for` để duyệt qua từng ký tự của chuỗi đầu vào.",
+              "5. Bên trong vòng lặp, kiểm tra xem ký tự hiện tại có nằm trong danh sách nguyên âm không (`char.lower() in 'aeiou'`).",
+              "6. Nếu ký tự đó *không phải* là nguyên âm, nối nó vào chuỗi kết quả.",
+              "7. Sau vòng lặp, in ra chuỗi kết quả."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "text = input(\"Input: \")\nresult = \"\"\n\nvowels = \"aeiou\"\n\nfor char in text:\n    if char.lower() not in vowels:\n        result += char\n\nprint(f\"Output: {result}\")"
+          }
+        }
+      },
+      {
+        "id": "vanity",
+        "name": "Vanity Plates",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bài toán này có nhiều quy tắc cần kiểm tra. Việc chia nhỏ vấn đề thành các hàm nhỏ hơn, mỗi hàm kiểm tra một quy tắc, là một ý tưởng tốt.",
+              "Quy tắc 1: Độ dài từ 2 đến 6 ký tự.",
+              "Quy tắc 2: Hai ký tự đầu phải là chữ cái.",
+              "Quy tắc 3: Không có dấu câu hoặc khoảng trắng.",
+              "Quy tắc 4: Số không được đứng giữa. Số 0 không được là số đầu tiên.",
+              "Làm thế nào để kiểm tra một chuỗi chỉ chứa chữ và số?",
+              "Làm thế nào để tìm vị trí của số đầu tiên trong chuỗi và kiểm tra các ký tự sau nó?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Tạo hàm `is_valid(s)` nhận biển số và trả về `True` hoặc `False`.",
+              "2. Trong `is_valid`, kiểm tra độ dài: `if not 2 <= len(s) <= 6: return False`.",
+              "3. Kiểm tra hai ký tự đầu: `if not s[0:2].isalpha(): return False`.",
+              "4. Kiểm tra toàn bộ chuỗi chỉ chứa chữ và số: `if not s.isalnum(): return False`.",
+              "5. Tìm số đầu tiên. Duyệt qua chuỗi, khi gặp `char.isdigit()`, kiểm tra xem đó có phải là '0' không. Sau đó, kiểm tra phần còn lại của chuỗi (`s[i:]`) có phải toàn là số không (`.isdigit()`).",
+              "6. Nếu tất cả các quy tắc đều được thỏa mãn, hàm trả về `True`."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "def main():\n    plate = input(\"Plate: \")\n    if is_valid(plate):\n        print(\"Valid\")\n    else:\n        print(\"Invalid\")\n\ndef is_valid(s):\n    if not 2 <= len(s) <= 6:\n        return False\n    if not s[0:2].isalpha():\n        return False\n    if not s.isalnum():\n        return False\n\n    # Check for numbers in the middle\n    found_digit = False\n    for char in s:\n        if char.isdigit():\n            if not found_digit and char == '0':\n                return False # First number can't be 0\n            found_digit = True\n        elif found_digit:\n            return False # Letter after a number\n\n    return True\n\nmain()"
+          }
+        }
+      },
+      {
+        "id": "nutrition",
+        "name": "Nutrition Facts",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần một cách để lưu trữ và tra cứu thông tin dinh dưỡng cho các loại trái cây.",
+              "Cấu trúc dữ liệu nào phù hợp để lưu trữ các cặp khóa-giá trị (tên trái cây - lượng calo)?",
+              "Làm thế nào để xử lý việc người dùng nhập tên trái cây với chữ hoa/thường khác nhau?",
+              "Chuyện gì xảy ra nếu người dùng nhập một loại trái cây không có trong danh sách của bạn?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Tạo một dictionary (từ điển) để lưu trữ dữ liệu, ví dụ: `fruits = {\"apple\": 130, \"banana\": 110, ...}`. Sử dụng khóa là chữ thường.",
+              "2. Nhận tên loại trái cây từ người dùng.",
+              "3. Chuyển đổi đầu vào của người dùng thành chữ thường để tra cứu không phân biệt chữ hoa/thường.",
+              "4. Sử dụng `in` để kiểm tra xem khóa (tên trái cây đã xử lý) có tồn tại trong dictionary không.",
+              "5. Nếu có, lấy và in ra giá trị calo tương ứng.",
+              "6. Nếu không, không cần in gì cả."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "fruit_calories = {\n    \"apple\": 130,\n    \"avocado\": 50,\n    \"banana\": 110,\n    \"cantaloupe\": 50,\n    \"grapefruit\": 60,\n    \"grapes\": 90,\n    \"honeydew melon\": 50,\n    \"kiwifruit\": 90,\n    \"lemon\": 15,\n    \"lime\": 20,\n    \"nectarine\": 60,\n    \"orange\": 80,\n    \"peach\": 60,\n    \"pear\": 100,\n    \"pineapple\": 50,\n    \"plums\": 70,\n    \"strawberries\": 50,\n    \"sweet cherries\": 100,\n    \"tangerine\": 50,\n    \"watermelon\": 80\n}\n\nitem = input(\"Item: \").lower()\n\nif item in fruit_calories:\n    print(f\"Calories: {fruit_calories[item]}\")"
+          }
+        }
+      }
+    ]
+  }
+  

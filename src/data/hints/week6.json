@@ -1,0 +1,131 @@
+
+{
+    "week": 6,
+    "problems": [
+      {
+        "id": "lines",
+        "name": "Lines of Code",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Mục tiêu là đếm số dòng code thực sự trong một file Python, bỏ qua các dòng trống và dòng comment.",
+              "Làm thế nào để đọc một file từng dòng một?",
+              "Làm thế nào để kiểm tra một dòng có phải là dòng trống (chỉ chứa khoảng trắng) hay không?",
+              "Làm thế nào để kiểm tra một dòng có bắt đầu bằng ký tự comment `#` không (sau khi đã loại bỏ khoảng trắng ở đầu)?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Kiểm tra đối số dòng lệnh để lấy tên file.",
+              "2. Mở file để đọc bằng khối `with open(...)`.",
+              "3. Khởi tạo một biến đếm `line_count = 0`.",
+              "4. Dùng vòng lặp `for line in file:` để đọc từng dòng.",
+              "5. Với mỗi dòng, dùng `.strip()` để loại bỏ khoảng trắng ở đầu và cuối.",
+              "6. Nếu dòng sau khi `strip` không rỗng VÀ không bắt đầu bằng `#`, thì tăng biến đếm.",
+              "7. Sau khi đọc xong file, in ra kết quả đếm."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "import sys\n\nif len(sys.argv) != 2 or not sys.argv[1].endswith(\".py\"):\n    sys.exit(\"Invalid command-line arguments\")\n\ncount = 0\ntry:\n    with open(sys.argv[1], \"r\") as file:\n        for line in file:\n            stripped_line = line.strip()\n            if stripped_line and not stripped_line.startswith(\"#\"):\n                count += 1\n    print(count)\nexcept FileNotFoundError:\n    sys.exit(\"File does not exist\")"
+          }
+        }
+      },
+      {
+        "id": "pizza",
+        "name": "Pizza Py",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần đọc một file CSV và hiển thị nó dưới dạng một bảng ASCII art đẹp mắt.",
+              "Thư viện `csv` có thể giúp đọc file CSV. Làm thế nào để đọc từng hàng của file?",
+              "Thư viện `tabulate` của bên thứ ba rất tuyệt vời để tạo bảng. Làm thế nào để sử dụng nó với dữ liệu bạn đã đọc?",
+              "Hàm `tabulate` thường nhận một danh sách các danh sách (cho dữ liệu) và một danh sách khác cho các tiêu đề."
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Kiểm tra đối số dòng lệnh.",
+              "2. Import `csv` và `tabulate`.",
+              "3. Mở file CSV và tạo một `csv.reader`.",
+              "4. Đọc dòng đầu tiên để lấy các tiêu đề.",
+              "5. Đọc các dòng còn lại và lưu chúng vào một danh sách.",
+              "6. Gọi hàm `tabulate()` với danh sách dữ liệu, tiêu đề, và `tablefmt=\"grid\"`.",
+              "7. In kết quả trả về từ `tabulate`."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "import sys\nimport csv\nfrom tabulate import tabulate\n\n# ... kiểm tra sys.argv ...\n\nmenu = []\ntry:\n    with open(sys.argv[1], \"r\") as file:\n        reader = csv.reader(file)\n        # Bạn có thể đọc trực tiếp vào tabulate hoặc xử lý trước\n        for row in reader:\n            menu.append(row)\n\n    # Dòng đầu tiên là header, các dòng còn lại là dữ liệu\n    headers = menu[0]\n    data = menu[1:]\n    print(tabulate(data, headers=headers, tablefmt=\"grid\"))\n\nexcept FileNotFoundError:\n    sys.exit(\"File does not exist\")"
+          }
+        }
+      },
+      {
+        "id": "scourgify",
+        "name": "Scourgify",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần đọc một file CSV có cột 'name' và 'house', sau đó ghi ra một file mới với các cột 'first', 'last', và 'house'.",
+              "Làm thế nào để tách cột 'name' (ví dụ: 'Potter, Harry') thành 'first' ('Harry') và 'last' ('Potter')?",
+              "Thư viện `csv` có `DictReader` và `DictWriter` rất hữu ích khi làm việc với các file CSV có tiêu đề.",
+              "Quy trình sẽ là: đọc từng hàng từ file đầu vào, xử lý dữ liệu, và ghi hàng đã xử lý vào file đầu ra."
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Kiểm tra đối số dòng lệnh (cần 2 file).",
+              "2. Mở file đầu vào để đọc (`DictReader`) và file đầu ra để ghi (`DictWriter`).",
+              "3. Viết dòng tiêu đề ('first', 'last', 'house') vào file đầu ra.",
+              "4. Lặp qua từng hàng trong `DictReader` của file đầu vào.",
+              "5. Với mỗi hàng, lấy giá trị của cột 'name' và tách nó tại dấu phẩy.",
+              "6. Tạo một dictionary mới cho hàng đầu ra với các khóa và giá trị đã được xử lý.",
+              "7. Sử dụng `DictWriter` để ghi dictionary mới này vào file đầu ra."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "import sys\nimport csv\n\n# ... kiểm tra sys.argv ...\n\nstudents = []\ntry:\n    with open(sys.argv[1], \"r\") as infile:\n        reader = csv.DictReader(infile)\n        for row in reader:\n            last, first = row[\"name\"].split(\", \")\n            students.append({\"first\": first, \"last\": last, \"house\": row[\"house\"]})\n\n    with open(sys.argv[2], \"w\") as outfile:\n        writer = csv.DictWriter(outfile, fieldnames=[\"first\", \"last\", \"house\"])\n        writer.writeheader()\n        for student in students:\n            writer.writerow(student)\n\nexcept FileNotFoundError:\n    sys.exit(f\"Could not read {sys.argv[1]}\")"
+          }
+        }
+      },
+      {
+        "id": "shirt",
+        "name": "CS50 P-Shirt",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần ghép một hình ảnh (áo thun) lên một hình ảnh khác.",
+              "Thư viện Pillow (PIL) là công cụ tiêu chuẩn cho việc xử lý ảnh trong Python.",
+              "Làm thế nào để mở hai hình ảnh bằng Pillow?",
+              "Làm thế nào để thay đổi kích thước của một hình ảnh để nó vừa với một kích thước cụ thể?",
+              "Làm thế nào để dán một hình ảnh (có thể có phần trong suốt) lên một hình ảnh khác?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Kiểm tra đối số dòng lệnh.",
+              "2. Mở file ảnh đầu vào và file ảnh áo thun (`shirt.png`) bằng `Image.open()`.",
+              "3. Lấy kích thước của ảnh áo thun.",
+              "4. Thay đổi kích thước ảnh đầu vào để khớp với kích thước của ảnh áo thun bằng `ImageOps.fit()`.",
+              "5. Dán ảnh áo thun lên ảnh đầu vào đã được thay đổi kích thước. Tham số thứ ba (mask) của hàm `paste` chính là ảnh áo thun, để xử lý phần trong suốt.",
+              "6. Lưu hình ảnh kết quả."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "import sys\nfrom PIL import Image, ImageOps\n\n# ... kiểm tra sys.argv và phần mở rộng file ...\n\ntry:\n    # Mở ảnh đầu vào và áo thun\n    input_img = Image.open(sys.argv[1])\n    shirt_img = Image.open(\"shirt.png\")\n\n    # Lấy kích thước của áo thun\n    shirt_size = shirt_img.size\n\n    # Cắt và thay đổi kích thước ảnh đầu vào để vừa với áo\n    muppet_fitted = ImageOps.fit(input_img, shirt_size)\n\n    # Dán áo thun lên ảnh đã khớp kích thước\n    muppet_fitted.paste(shirt_img, shirt_img)\n\n    # Lưu kết quả\n    muppet_fitted.save(sys.argv[2])\n\nexcept FileNotFoundError:\n    sys.exit(\"Input does not exist\")"
+          }
+        }
+      }
+    ]
+  }
+  

@@ -1,0 +1,162 @@
+
+{
+    "week": 4,
+    "problems": [
+      {
+        "id": "emojize",
+        "name": "Emojize",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bài toán yêu cầu chuyển đổi một mã emoji (ví dụ: ':thumbs_up:') thành ký tự emoji thực sự (👍).",
+              "Việc tự tạo một từ điển cho tất cả các emoji là không khả thi.",
+              "Có thư viện nào của bên thứ ba có thể giúp bạn thực hiện việc này không? Hãy tìm kiếm trên PyPI.",
+              "Sau khi cài đặt thư viện, làm thế nào để bạn import và sử dụng hàm chính của nó?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Cài đặt thư viện `emoji` bằng pip: `pip install emoji`.",
+              "2. Import thư viện vào script của bạn: `import emoji`.",
+              "3. Nhận chuỗi đầu vào từ người dùng.",
+              "4. Gọi hàm `emoji.emojize()` và truyền chuỗi đầu vào làm đối số.",
+              "5. In kết quả trả về từ hàm."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "import emoji\n\n# Nhận đầu vào từ người dùng\ntext = input(\"Input: \")\n\n# Sử dụng thư viện để chuyển đổi\nemojized_text = emoji.emojize(text, language='alias')\n\n# In kết quả\nprint(f\"Output: {emojized_text}\")"
+          }
+        }
+      },
+      {
+        "id": "figlet",
+        "name": "Frank, Ian and Glen's Letters",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần tạo ra văn bản ASCII art bằng một font chữ cụ thể hoặc một font ngẫu nhiên.",
+              "Làm thế nào để chương trình của bạn nhận các đối số từ dòng lệnh (command-line arguments)?",
+              "Thư viện `pyfiglet` có thể giúp tạo ASCII art. Làm thế nào để lấy danh sách tất cả các font có sẵn?",
+              "Làm thế nào để xử lý các trường hợp khác nhau dựa trên số lượng đối số dòng lệnh?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Import các thư viện cần thiết: `sys`, `random`, `pyfiglet`.",
+              "2. Khởi tạo một đối tượng Figlet: `figlet = Figlet()`.",
+              "3. Lấy danh sách các font: `font_list = figlet.getFonts()`.",
+              "4. Kiểm tra độ dài của `sys.argv`. Nếu là 1 (không có đối số), chọn một font ngẫu nhiên.",
+              "5. Nếu độ dài là 3 và đối số đầu tiên là `-f` hoặc `--font` và font có trong danh sách, sử dụng font đó.",
+              "6. Nếu không, thoát chương trình với thông báo lỗi.",
+              "7. Yêu cầu người dùng nhập văn bản.",
+              "8. Đặt font đã chọn cho đối tượng figlet: `figlet.setFont(font=chosen_font)`.",
+              "9. In ra văn bản đã được render."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "import sys\nimport random\nfrom pyfiglet import Figlet\n\nfiglet = Figlet()\nfonts = figlet.getFonts()\n\nif len(sys.argv) == 1:\n    font = random.choice(fonts)\nelif len(sys.argv) == 3 and (sys.argv[1] == \"-f\" or sys.argv[1] == \"--font\") and sys.argv[2] in fonts:\n    font = sys.argv[2]\nelse:\n    sys.exit(\"Invalid usage\")\n\ntext = input(\"Input: \")\nfiglet.setFont(font=font)\nprint(\"Output:\")\nprint(figlet.renderText(text))"
+          }
+        }
+      },
+      {
+        "id": "game",
+        "name": "Guessing Game",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Chương trình cần tạo một số ngẫu nhiên trong một phạm vi và yêu cầu người dùng đoán.",
+              "Làm thế nào để nhận một số nguyên dương từ người dùng và xử lý nếu họ nhập sai?",
+              "Làm thế nào để tạo một số nguyên ngẫu nhiên?",
+              "Vòng lặp nào phù hợp để cho phép người dùng đoán nhiều lần?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Sử dụng một vòng lặp `while True` và `try/except` để yêu cầu người dùng nhập mức độ (level) cho đến khi nhận được một số nguyên dương.",
+              "2. Sau khi có level, tạo một số ngẫu nhiên từ 1 đến level bằng `random.randint(1, n)`.",
+              "3. Bắt đầu một vòng lặp `while True` khác để người dùng đoán.",
+              "4. Bên trong vòng lặp đoán, sử dụng `try/except` để đảm bảo người dùng nhập một số nguyên.",
+              "5. So sánh số người dùng đoán với số ngẫu nhiên và in ra 'Too small!', 'Too large!', hoặc 'Just right!'.",
+              "6. Nếu đoán đúng, thoát khỏi vòng lặp."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "import random\n\nwhile True:\n    try:\n        level = int(input(\"Level: \"))\n        if level > 0:\n            break\n    except ValueError:\n        pass\n\ntarget = random.randint(1, level)\n\nwhile True:\n    try:\n        guess = int(input(\"Guess: \"))\n        if guess < target:\n            print(\"Too small!\")\n        elif guess > target:\n            print(\"Too large!\")\n        else:\n            print(\"Just right!\")\n            break\n    except ValueError:\n        pass"
+          }
+        }
+      },
+      {
+        "id": "professor",
+        "name": "Little Professor",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Đây là một bài toán phức tạp hơn, đòi hỏi phải cấu trúc code thành các hàm.",
+              "Hàm `get_level` nên làm gì? Nó cần đảm bảo người dùng nhập 1, 2, hoặc 3.",
+              "Hàm `generate_integer` nên làm gì? Nó phụ thuộc vào level đã chọn.",
+              "Vòng lặp chính của trò chơi sẽ như thế nào? Nó cần tạo 10 bài toán, cho người dùng 3 lần đoán cho mỗi bài, và theo dõi điểm số."
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. `get_level`: Dùng `while True` và `try/except` để nhận level 1, 2, hoặc 3.",
+              "2. `generate_integer`: Dùng `if/elif/else` dựa trên level để trả về một số ngẫu nhiên có 1, 2, hoặc 3 chữ số.",
+              "3. `main`: Gọi `get_level`. Khởi tạo `score = 0`. Bắt đầu vòng lặp `for _ in range(10)`.",
+              "4. Trong vòng lặp chính, gọi `generate_integer` hai lần để có `x` và `y`. Khởi tạo `tries = 0`.",
+              "5. Bắt đầu vòng lặp `while tries < 3`. Yêu cầu người dùng trả lời.",
+              "6. Nếu câu trả lời đúng, tăng `score` và `break`. Nếu sai, in 'EEE' và tăng `tries`.",
+              "7. Nếu hết 3 lần thử, in ra đáp án đúng.",
+              "8. Sau vòng lặp chính, in điểm cuối cùng."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "import random\n\ndef main():\n    level = get_level()\n    score = 0\n    for _ in range(10):\n        x = generate_integer(level)\n        y = generate_integer(level)\n        # ... logic cho 3 lần thử ...\n    print(f\"Score: {score}\")\n\ndef get_level():\n    # ... logic nhận level 1, 2, 3 ...\n\ndef generate_integer(level):\n    if level == 1:\n        return random.randint(0, 9)\n    # ... logic cho level 2, 3 ...\n\nif __name__ == \"__main__\":\n    main()"
+          }
+        }
+      },
+      {
+        "id": "bitcoin",
+        "name": "Bitcoin Price Index",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần lấy giá Bitcoin hiện tại từ một API công khai.",
+              "Làm thế nào để xử lý các đối số dòng lệnh để nhận số lượng Bitcoin?",
+              "Thư viện `requests` dùng để gửi yêu cầu HTTP đến API. Cần xử lý các lỗi có thể xảy ra khi gửi yêu cầu.",
+              "API trả về dữ liệu ở định dạng JSON. Làm thế nào để phân tích cú pháp (parse) dữ liệu này trong Python?",
+              "Sau khi có giá mỗi Bitcoin và số lượng Bitcoin, phép tính cuối cùng là gì?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Kiểm tra `sys.argv` để đảm bảo có đúng một đối số và nó là một số.",
+              "2. Gửi yêu cầu GET đến API của CoinDesk bằng `requests.get()`. Đặt nó trong khối `try/except` để xử lý `requests.RequestException`.",
+              "3. Phân tích cú pháp phản hồi JSON bằng `.json()`.",
+              "4. Trích xuất giá Bitcoin (rate_float) từ cấu trúc JSON lồng nhau.",
+              "5. Nhân giá này với số lượng Bitcoin từ đối số dòng lệnh.",
+              "6. In ra tổng chi phí đã được định dạng."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "import requests\nimport sys\n\nif len(sys.argv) != 2:\n    sys.exit(\"Missing command-line argument\")\n\ntry:\n    btc_amount = float(sys.argv[1])\nexcept ValueError:\n    sys.exit(\"Command-line argument is not a number\")\n\ntry:\n    response = requests.get(\"https://api.coindesk.com/v1/bpi/currentprice.json\")\n    data = response.json()\n    btc_price = data[\"bpi\"][\"USD\"][\"rate_float\"]\n    total_cost = btc_amount * btc_price\n    print(f\"${total_cost:,.4f}\")\nexcept requests.RequestException:\n    sys.exit(\"Request failed\")"
+          }
+        }
+      }
+    ]
+  }
+  

@@ -1,0 +1,5 @@
+{
+  "name": "CS50P Helper",
+  "description": "An extension to enhance the CS50P learning experience with a customizable three-panel layout, integrated Python documentation, and multi-level problem-solving hints in Vietnamese.",
+  "requestFramePermissions": []
+}

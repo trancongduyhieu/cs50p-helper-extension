@@ -1,0 +1,37 @@
+
+{
+    "week": 9,
+    "problems": [
+      {
+        "id": "project",
+        "name": "Final Project",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Đây là tuần của bạn để sáng tạo! Hãy nghĩ về một vấn đề bạn muốn giải quyết hoặc một công cụ bạn muốn xây dựng.",
+              "Yêu cầu chính là gì? (ví dụ: hàm `main`, 3 hàm tự định nghĩa, unit tests).",
+              "Làm thế nào để bạn cấu trúc dự án của mình thành các file và module hợp lý?",
+              "Bạn có cần sử dụng thư viện nào của bên thứ ba không?"
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Lên Kế Hoạch",
+            "content": [
+              "1. Brainstorm ý tưởng: Liệt kê các chủ đề bạn quan tâm.",
+              "2. Xác định phạm vi: Chọn một ý tưởng đủ nhỏ để hoàn thành nhưng đủ thách thức.",
+              "3. Thiết kế: Phác thảo các chức năng chính và cách chúng tương tác với nhau. Quyết định các hàm bạn sẽ viết.",
+              "4. Triển khai: Bắt đầu viết code, tập trung vào một chức năng tại một thời điểm.",
+              "5. Viết Tests: Viết các bài kiểm thử cho các hàm cốt lõi của bạn để đảm bảo chúng hoạt động đúng.",
+              "6. Hoàn thiện: Viết tài liệu (README), quay video demo, và đảm bảo dự án đáp ứng tất cả các yêu cầu."
+            ]
+          },
+          "level3": {
+            "title": "Cấu trúc Dự án Mẫu",
+            "content": "# project.py\nimport another_module\n\ndef main():\n    #... code chính của bạn ...\n\ndef function_one(args):\n    #... thực hiện một việc ...\n\ndef function_two(args):\n    #... thực hiện một việc khác ...\n\ndef function_three(args):\n    #... thực hiện một việc nữa ...\n\nif __name__ == \"__main__\":\n    main()\n\n# test_project.py\nfrom project import function_one, function_two\n\ndef test_function_one():\n    assert function_one(input) == expected_output\n\ndef test_function_two():\n    assert function_two(input) == expected_output\n"
+          }
+        }
+      }
+    ]
+  }
+  

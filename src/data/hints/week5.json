@@ -1,0 +1,128 @@
+
+{
+    "week": 5,
+    "problems": [
+      {
+        "id": "testtwttr",
+        "name": "Testing my twttr",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần viết các bài kiểm thử (unit tests) cho chương trình `twttr` đã viết ở tuần 2.",
+              "Mỗi bài kiểm thử nên là một hàm riêng biệt, có tên bắt đầu bằng `test_`.",
+              "Sử dụng câu lệnh `assert` để kiểm tra xem kết quả của hàm `shorten` có đúng như mong đợi không.",
+              "Bạn nên kiểm thử những trường hợp nào? (ví dụ: chuỗi thường, chuỗi có chữ hoa, chuỗi có số, chuỗi có dấu câu)."
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Tạo một file mới tên là `test_twttr.py`.",
+              "2. Import hàm `shorten` từ file `twttr.py`: `from twttr import shorten`.",
+              "3. Viết hàm `test_vowels()` để kiểm tra việc loại bỏ nguyên âm thường.",
+              "4. Viết hàm `test_capital_vowels()` để kiểm tra việc loại bỏ nguyên âm hoa.",
+              "5. Viết hàm `test_numbers()` để kiểm tra rằng các số không bị loại bỏ.",
+              "6. Viết hàm `test_punctuation()` để kiểm tra rằng dấu câu không bị loại bỏ.",
+              "7. Trong mỗi hàm, sử dụng `assert shorten(\"input_string\") == \"expected_output\"`."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "from twttr import shorten\n\ndef test_lowercase_vowels():\n    assert shorten(\"twitter\") == \"twttr\"\n\ndef test_uppercase_vowels():\n    assert shorten(\"AEIOU\") == \"\"\n\ndef test_numbers():\n    assert shorten(\"12345\") == \"12345\"\n\ndef test_punctuation():\n    assert shorten(\"Hello, World!\") == \"Hll, Wrld!\""
+          }
+        }
+      },
+      {
+        "id": "testbank",
+        "name": "Back to the Bank",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Viết unit tests cho chương trình `bank` từ tuần 1.",
+              "Chương trình này trả về các giá trị tiền khác nhau ($0, $20, $100) dựa trên lời chào.",
+              "Làm thế nào để kiểm thử các trường hợp khác nhau của lời chào? (bắt đầu bằng 'hello', 'h', và các trường hợp khác).",
+              "Đừng quên kiểm thử cả trường hợp chữ hoa và chữ thường."
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Tạo file `test_bank.py`.",
+              "2. Import hàm `value` từ `bank.py`.",
+              "3. Viết hàm `test_hello()` để kiểm tra trường hợp trả về 0: `assert value(\"hello world\") == 0`.",
+              "4. Viết hàm `test_h()` để kiểm tra trường hợp trả về 20: `assert value(\"how are you?\") == 20`.",
+              "5. Viết hàm `test_other()` để kiểm tra trường hợp trả về 100: `assert value(\"What's up?\") == 100`.",
+              "6. Viết thêm một bài kiểm thử cho trường hợp chữ hoa: `assert value(\"HELLO\") == 0`."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "from bank import value\n\ndef test_hello_exact():\n    assert value(\"hello\") == 0\n\ndef test_hello_case_insensitive():\n    assert value(\"HELLO, Newman\") == 0\n\ndef test_starts_with_h():\n    assert value(\"How you doing?\") == 20\n\ndef test_no_h():\n    assert value(\"What's happening?\") == 100"
+          }
+        }
+      },
+      {
+        "id": "testplates",
+        "name": "Re-requesting a Vanity Plate",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Viết unit tests cho hàm `is_valid` từ tuần 2.",
+              "Hàm này có nhiều quy tắc phức tạp, vì vậy bạn cần kiểm thử từng quy tắc một.",
+              "Kiểm thử các trường hợp hợp lệ và không hợp lệ cho mỗi quy tắc (độ dài, ký tự đầu, số ở giữa, số 0 đầu tiên, dấu câu)."
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Tạo file `test_plates.py` và import `is_valid`.",
+              "2. `test_length()`: Kiểm thử các biển số quá ngắn và quá dài.",
+              "3. `test_start_alpha()`: Kiểm thử biển số bắt đầu bằng số.",
+              "4. `test_alnum()`: Kiểm thử biển số có dấu câu.",
+              "5. `test_num_placement()`: Kiểm thử biển số có chữ cái sau số (ví dụ: 'CS50P').",
+              "6. `test_zero_placement()`: Kiểm thử biển số có số 0 là số đầu tiên (ví dụ: 'CS05').",
+              "7. `test_valid()`: Kiểm thử một vài biển số hợp lệ để đảm bảo chúng trả về True."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "from plates import is_valid\n\ndef test_valid_plates():\n    assert is_valid(\"CS50\") == True\n    assert is_valid(\"ECTO88\") == True\n\ndef test_invalid_length():\n    assert is_valid(\"H\") == False\n    assert is_valid(\"WAYTOOLONG\") == False\n\ndef test_invalid_start():\n    assert is_valid(\"50CS\") == False\n\ndef test_number_in_middle():\n    assert is_valid(\"CS50P\") == False\n\ndef test_zero_as_first_number():\n    assert is_valid(\"CS05\") == False\n\ndef test_punctuation():\n    assert is_valid(\"PI3.14\") == False"
+          }
+        }
+      },
+      {
+        "id": "testfuel",
+        "name": "Refueling",
+        "hints": {
+          "level1": {
+            "title": "Gợi ý Tư duy",
+            "content": [
+              "Bạn cần kiểm thử cả hai hàm: `convert` và `gauge`.",
+              "Đối với `convert`, bạn cần kiểm thử các trường hợp nó hoạt động đúng và các trường hợp nó nên gây ra lỗi (`ValueError`, `ZeroDivisionError`).",
+              "Làm thế nào để kiểm thử một hàm có gây ra lỗi như mong đợi trong `pytest`?",
+              "Đối với `gauge`, bạn cần kiểm thử ba trường hợp chính: 'E', 'F', và giá trị phần trăm ở giữa."
+            ]
+          },
+          "level2": {
+            "title": "Các Bước Logic",
+            "content": [
+              "1. Tạo file `test_fuel.py` và import `convert`, `gauge`.",
+              "2. `test_convert_valid()`: Kiểm thử các phân số hợp lệ, ví dụ: `assert convert(\"3/4\") == 75`.",
+              "3. `test_convert_errors()`: Sử dụng `with pytest.raises(ValueError): convert(\"cat/dog\")` và `with pytest.raises(ZeroDivisionError): convert(\"1/0\")`.",
+              "4. `test_gauge_empty()`: `assert gauge(1) == \"E\"`.",
+              "5. `test_gauge_full()`: `assert gauge(99) == \"F\"`.",
+              "6. `test_gauge_middle()`: `assert gauge(50) == \"50%\"`."
+            ]
+          },
+          "level3": {
+            "title": "Code Skeleton",
+            "content": "import pytest\nfrom fuel import convert, gauge\n\ndef test_convert():\n    assert convert(\"1/2\") == 50\n    assert convert(\"99/100\") == 99\n\ndef test_convert_value_error():\n    with pytest.raises(ValueError):\n        convert(\"three/four\")\n\ndef test_convert_zero_division_error():\n    with pytest.raises(ZeroDivisionError):\n        convert(\"4/0\")\n\ndef test_gauge():\n    assert gauge(0) == \"E\"\n    assert gauge(1) == \"E\"\n    assert gauge(50) == \"50%\"\n    assert gauge(99) == \"F\"\n    assert gauge(100) == \"F\""
+          }
+        }
+      }
+    ]
+  }
+  
